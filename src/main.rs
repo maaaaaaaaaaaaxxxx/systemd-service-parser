@@ -16,8 +16,8 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     // Parsing
     let service_file = fs::read_to_string(file_path)?;
 
-    let service = systemd_service_parser::SystemdServiceParser::parse(systemd_service_parser::Rule::file, &service_file);
-    println!("{:#?}", service);
+    // let service = systemd_service_parser::SystemdServiceParser::parse(systemd_service_parser::Rule::file, &service_file);
+    // println!("{:#?}", service);
 
     // Converting to JSON
     match parse_service_file(&service_file) {
