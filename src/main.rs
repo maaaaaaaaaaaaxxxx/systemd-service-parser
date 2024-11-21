@@ -1,6 +1,5 @@
 use std::{env, fs};
 use systemd_service_parser::parse_service_file;
-use pest::Parser;
 use serde_json;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
