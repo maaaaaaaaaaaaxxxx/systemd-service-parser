@@ -1,0 +1,10 @@
+WHITESPACE = _{ " " | "\t" }
+
+file = { SOI ~ (SECTION | COMMENT | NEWLINE)+ ~ EOI }
+COMMENT = { "#" ~ (!NEWLINE ~ ANY)* ~ NEWLINE }
+SECTION = { HEADER ~ NEWLINE+ ~ KEY_VALUE* ~ NEWLINE* }
+HEADER = { "[" ~ ASCII_ALPHANUMERIC+ ~ "]" }
+KEY_VALUE = { KEY ~ "=" ~ VALUE ~ NEWLINE }
+KEY = { (ASCII_ALPHANUMERIC | "-" | "_")+ }
+VALUE = { (!NEWLINE ~ ANY)* }
+NEWLINE = _{ "\r\n" | "\n" }
